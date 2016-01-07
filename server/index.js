@@ -271,6 +271,29 @@ routes.post('/removeimage', function (req, res){
   }); 
 })
 
+//get all the comments from votes.
+routes.get('/vote*', function(req, res){
+
+  var imageId = req.query.imageId;
+
+  pg.connect(connectString, function(err, client, done){
+    if(err){
+      console.log('error connecting to db', err);
+    }
+    else{
+      client.query('SELECT votes.message, users.username, votes.rating FROM votes INNER JOIN users ON votes.user_id=users.user_id WHERE votes.image_id=$1;', [imageId], function(err, result){
+        if(err){
+          console.error('error on lookup of mesages');
+        }else{
+          res.status(201).json({result: result.rows});
+          done();
+        }
+      })
+    }
+  });
+});
+
+
 routes.post('/vote', function (req, res){
   var username = req.body.username;
   var rating = req.body.rating;
