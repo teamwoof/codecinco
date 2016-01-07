@@ -108,7 +108,6 @@ routes.post('/postimage', function (req, res){
       var temp_path = this.openedFiles[0].path;
       /* The file name of the uploaded file */
       var file_name = this.openedFiles[0].name;
-      console.log(file_name);
       var getExt = /(?:\.([^.]+))?$/;
       var ext = getExt.exec(file_name)[1]; 
       file_name = file_name.replace(ext,""); 
@@ -124,7 +123,6 @@ routes.post('/postimage', function (req, res){
         fs.writeFile(new_location + file_name, decodedImage, function(err) {
           if (err) console.error(err);
           else {
-            console.log(file_name);
             saveToDB();
           }
         });
@@ -213,7 +211,6 @@ routes.post('/closet', function (req, res){
               console.error('error fetching closet images: ', err);
             }
             else{
-              console.log("result", result);
               closetItems.pics = result.rows;
 
                 //grab all of the votes for each user pic
