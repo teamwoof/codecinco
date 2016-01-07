@@ -91,7 +91,6 @@ routes.post('/postimage', function (req, res){
   var myFields = {};
   form.on('field', function(field, value){
     myFields[field] = value;
-    //console.log('fields in form.on', myFields);
   });
 
   form.on('end', function(fields, files) {
@@ -103,7 +102,7 @@ routes.post('/postimage', function (req, res){
     .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
       //var decodedImage = new Buffer(myFields.image, 'base64').toString('binary');
       /* The file name of the uploaded file */
-      var file_name = myFields.image.slice(50,60) + ".jpeg";
+      var file_name = "cam" + Math.floor(Math.random()*9999999999) + ".jpeg";
       var temp_path = "";
     }else{
       var temp_path = this.openedFiles[0].path;
@@ -214,6 +213,7 @@ routes.post('/closet', function (req, res){
               console.error('error fetching closet images: ', err);
             }
             else{
+              console.log("result", result);
               closetItems.pics = result.rows;
 
                 //grab all of the votes for each user pic
