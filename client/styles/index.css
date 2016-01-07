@@ -422,3 +422,10 @@ input::-webkit-input-placeholder{
   width: 200px;
   resize: none;
 }
+.btn-container {
+  float: left !important;
+  margin: 10px !important;
+  height: 40px;
+  width: 80px;
+  color: #fff;
+}
