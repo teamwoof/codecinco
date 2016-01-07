@@ -91,7 +91,6 @@ routes.post('/postimage', function (req, res){
   var myFields = {};
   form.on('field', function(field, value){
     myFields[field] = value;
-    //console.log('fields in form.on', myFields);
   });
 
   form.on('end', function(fields, files) {
@@ -103,7 +102,7 @@ routes.post('/postimage', function (req, res){
     .replace(/^data:image\/(png|gif|jpeg);base64,/,''), 'base64');
       //var decodedImage = new Buffer(myFields.image, 'base64').toString('binary');
       /* The file name of the uploaded file */
-      var file_name = myFields.image.slice(50,60) + ".jpeg";
+      var file_name = "cam" + Math.floor(Math.random()*9999999999) + ".jpeg";
       var temp_path = "";
     }else{
       var temp_path = this.openedFiles[0].path;
@@ -214,6 +213,7 @@ routes.post('/closet', function (req, res){
               console.error('error fetching closet images: ', err);
             }
             else{
+              console.log("result", result);
               closetItems.pics = result.rows;
 
                 //grab all of the votes for each user pic
@@ -275,8 +275,7 @@ routes.post('/vote', function (req, res){
   var username = req.body.username;
   var rating = req.body.rating;
   var imageId = req.body.imageId;
-  console.log('imageId', imageId);
-  console.log('rating', rating);
+  var message = req.body.message;
   pg.connect(connectString, function (err, client, done) {
     if(err){
       console.error('error connecting to the DB:', err);
@@ -288,43 +287,12 @@ routes.post('/vote', function (req, res){
         }
         else {
           var userId = result.rows[0].user_id
-          client.query('INSERT INTO votes (user_id, image_id, rating) VALUES ($1, $2, $3)',[userId, imageId, rating], function(err, result){
+          client.query('INSERT INTO votes (user_id, image_id, rating, message) VALUES ($1, $2, $3, $4)',[userId, imageId, rating, message], function(err, result){
             if(err){
               console.error('error inserting vote into votes table: ', err);
             }
             else{
               console.log('inserted');
-              res.status(201).json({result: result.rows});
-              done();
-            }
-          });
-        }
-      })
-    }
-  });
-});
-
-routes.post('/comment', function (req, res){
-  var username = req.body.username;
-  var comment = req.body.comment;
-  var imageId = req.body.imageId;
-  console.log('imageId', imageId);
-  pg.connect(connectString, function (err, client, done) {
-    if(err){
-      console.error('error connecting to the DB:', err);
-    }
-    else {
-      client.query('SELECT user_id FROM users WHERE username = $1', [username], function(err, result){
-        if(err){
-          console.error('error on lookup of user_id', err)
-        }
-        else {
-          var userId = result.rows[0].user_id
-          client.query('INSERT INTO comments (image_id, user_id, comment) VALUES ($1, $2, $3)',[imageId, userId, comment], function(err, result){
-            if(err){
-              console.error('error inserting comment into comments table: ', err);
-            }
-            else{
               res.status(201).json({result: result.rows});
               done();
             }

@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('myApp')
-.controller('ClosetCtrl', ['$scope','$http', '$window','$state','Register', 'Authorization', function($scope,$http,$window,$state, Register, Authorization) {
-  $scope.header = 'You will find your closet here';
-  $scope.imageUrl = url;
-  $scope.username = $window.localStorage.getItem('username');
-  $scope.search = "-1";
+  .controller('ClosetCtrl', ['$scope','$http', '$window','$state','Register', 'Authorization', function($scope,$http,$window,$state, Register, Authorization) {
+    $scope.header = 'You will find your closet here';
+    $scope.username = $window.localStorage.getItem('username');
+    $scope.search = "-1";
 
   $scope.getCloset = function(){
     //Call the factory method which gets a users images and votes for those images
@@ -63,25 +62,34 @@ angular.module('myApp')
 
   $('#fileImage').change(function(){
     if (this.files && this.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
-          $('#imgPreview').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(this.files[0]);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+        $('#imgPreview').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(this.files[0]);
     }
   });
+
+  $scope.takePhoto = function(){
+    $window.countdown();
+    setTimeout(function(){
+      $scope.savePhoto();
+    },countown_sec * 1020)
+  }
 
   $scope.showCamera = function(){
     $window.init()
     $scope.webcam = true;
   }
 
-  $scope.takePhoto = function(){
-    $window.capture();
-    $scope.webcamLink = true;
-    $scope.image = $window.captured;
+  $scope.savePhoto = function(){
+    var formImage = document.getElementById("camImage");
+    formImage.value = $window.captured;
+    console.log(formImage.value);
   }
+
+
 
   // initialize page with closet images if auth is good
   if(Authorization.authorized) {

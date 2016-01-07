@@ -17,12 +17,11 @@
 
 <div class='closet container col-md-12' ng-controller="ClosetCtrl">
 <div class='clear'></div>
-<h1>welcome to your closet &#9733</h1>
+<h1>welcome to your closet {{photo}}</h1>
 
 <div class='row'>
   <!-- <h3>add to your closet:</h3> -->
   <div class='clear'></div>
-
   <div class='col-md-6'>
     <form action="/postimage" method="post" enctype="multipart/form-data" class='closetform'>
         <div class="image-choice" ng-hide="imageChoice">
@@ -36,7 +35,7 @@
         </div>
         <div id="imgPreviewPlaceholder"></div>
         <input type="hidden" name="name" value="{{username}}">
-        <input id="camPreview" type="hidden" name="image" value="{{image}}">
+        <input id="camImage" type="hidden" name="image" value="">
         <select class="type" name="clothingType" required>
           <option value="">please select a clothing type</option>
           <option value="1">tops</option>
