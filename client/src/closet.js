@@ -45,55 +45,64 @@ angular.module('myApp')
       }); //end .then
     };
 
+  $scope.removeImage = function(imageId, imageName){
+    console.log('inside of remove image function');
+    console.log('current image ID', imageId);
+    console.log('current image NAME', imageName);
+    Register.register.removeImage(imageId, imageName)
+    .then(function(data){
+      console.log(data);
+    })
+  };
 
+  $scope.customPicTypeFilter = function (pic) {
+    if (pic.type_id === parseInt($scope.search)) {
+      return true;
+    }else if (parseInt($scope.search) === -1) {
+      return true;
+    }else {
+      return false;
+    }
+  };
 
-    $scope.removeImage = function(imageId, imageName){
-      console.log('inside of remove image function');
-      console.log('current image ID', imageId);
-      console.log('current image NAME', imageName);
-      Register.register.removeImage(imageId, imageName)
-      .then(function(data){
-        console.log(data);
-      })
-    };
-
-    $scope.customPicTypeFilter = function (pic) {
-      if (pic.type_id === parseInt($scope.search)) {
-        return true;
-      }else if (parseInt($scope.search) === -1) {
-        return true;
-      }else {
-        return false;
+  $('#fileImage').change(function(){
+    if (this.files && this.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+        $('#imgPreview').attr('src', e.target.result);
       }
-    };
-
-
-    $scope.showCamera = function(){
-      $window.init()
-      $scope.webcam = true;
+      reader.readAsDataURL(this.files[0]);
     }
+  });
 
-    $scope.takePhoto = function(){
-      $window.countdown();
-      setTimeout(function(){
-        $scope.savePhoto();
-      },countown_sec * 1020)
-    }
+  $scope.takePhoto = function(){
+    $window.countdown();
+    setTimeout(function(){
+      $scope.savePhoto();
+    },countown_sec * 1020)
+  }
 
-    $scope.savePhoto = function(){
-      var formImage = document.getElementById("camImage");
-      formImage.value = $window.captured;
-      console.log(formImage.value);
-    }
+  $scope.showCamera = function(){
+    $window.init()
+    $scope.webcam = true;
+  }
+
+  $scope.savePhoto = function(){
+    var formImage = document.getElementById("camImage");
+    formImage.value = $window.captured;
+    console.log(formImage.value);
+  }
 
 
-    // initialize page with closet images if auth is good
-    if(Authorization.authorized) {
-        $scope.getCloset();
-    }
 
-    $scope.reloadPage = function(){
-      $state.go($state.current, {}, {reload: true});
-    };
+  // initialize page with closet images if auth is good
+  if(Authorization.authorized) {
+      $scope.getCloset();
+  }
 
-  }]);
+  $scope.reloadPage = function(){
+    $state.go($state.current, {}, {reload: true});
+  };
+
+}]);
