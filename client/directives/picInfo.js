@@ -7,8 +7,10 @@ angular.module('myApp')
       },
       templateUrl: '../client/views/picInfo.html',
       link: function(scope, element, attrs){
-              scope.goToSingleOutfit = function(imageUrl){
-                $state.go('singleOutfit', {imageUrl: imageUrl});
+              scope.goToSingleOutfit = function(imageUrl, imageId){
+                console.log('imageID', imageId);
+                console.log('imageUrl', imageUrl);
+                $state.go('singleOutfit', {imageUrl: imageUrl, imageId: imageId});
               };
       }
     };
