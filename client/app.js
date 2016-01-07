@@ -57,7 +57,8 @@ angular.module('myApp', [
           "main": {templateUrl: "client/views/singleOutfit.html"}
         },
         params: {
-          imageUrl: null
+          imageUrl: null,
+          imageId: null
         }
       })
 
@@ -149,6 +150,16 @@ angular.module('myApp', [
         method: 'POST',
         url: '/vote',
         data: {rating: rating, username: username, imageId: imageId, message: message}
+      })
+      .then(function(resp){
+        return resp.data;
+      })
+    }
+
+    register.fetchComments = function(imageId){
+      return $http({
+        method: 'GET',
+        url: '/vote?imageId=' + imageId
       })
       .then(function(resp){
         return resp.data;

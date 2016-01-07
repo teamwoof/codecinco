@@ -7,6 +7,7 @@ angular.module('myApp')
       },
       templateUrl: '../client/views/picInfo.html',
       link: function(scope, element, attrs){
+
             // console.log('client/uploads/' + scope.info.image_name);
 
             // nude.load(scope.info.image_name);
@@ -15,13 +16,12 @@ angular.module('myApp')
             //   else console.log('Nude!!');
             // });
 
-            scope.goToSingleOutfit = function(imageUrl){
-              $state.go('singleOutfit', {imageUrl: imageUrl});
-            };
-            element.bind('load', function() {
+              scope.goToSingleOutfit = function(imageUrl, imageId){
+                console.log('imageID', imageId);
+                console.log('imageUrl', imageUrl);
+                $state.go('singleOutfit', {imageUrl: imageUrl, imageId: imageId});
+              };
 
-              alert('image is loaded');
-          });
       }
     };
   });

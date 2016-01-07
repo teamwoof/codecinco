@@ -1,8 +1,8 @@
-  angular
+   angular
     .module('myApp')
     .directive('starRating', starRating);
 
-  function starRating($timeout) {
+  function starRating() {
     return {
       restrict: 'EA',
       template:
@@ -28,7 +28,7 @@
               filled: i < Math.round(scope.ratingValue)
             });
           }
-        };
+      };
         scope.toggle = function(index) {
           console.log('clicked');
           console.log(index);
