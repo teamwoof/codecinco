@@ -57,7 +57,8 @@ angular.module('myApp', [
           "main": {templateUrl: "client/views/singleOutfit.html"}
         },
         params: {
-          imageUrl: null
+          imageUrl: null,
+          imageId: null
         }
       })
 
@@ -142,18 +143,29 @@ angular.module('myApp', [
       })
     }
 
-    register.vote = function(rating, username, imageId){
+    register.vote = function(rating, username, imageId, message){
       console.log('Factory Image ID', imageId);
       console.log(rating);
       return $http({
         method: 'POST',
         url: '/vote',
-        data: {rating: rating, username: username, imageId: imageId}
+        data: {rating: rating, username: username, imageId: imageId, message: message}
       })
       .then(function(resp){
         return resp.data;
       })
     }
+
+    register.fetchComments = function(imageId){
+      return $http({
+        method: 'GET',
+        url: '/vote?imageId=' + imageId
+      })
+      .then(function(resp){
+        return resp.data;
+      })
+    }
+
     /*****************VOTING ON IMAGE*******************/
 
     /*************GET CLOSET IMAGES********************/
