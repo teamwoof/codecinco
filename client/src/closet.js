@@ -31,9 +31,13 @@ angular.module('myApp')
                 // else{
                 //   $scope.pics[j].total += 1;
                 // }
+                if($scope.pics[j].total === 0){
+                $scope.pics[j].rating = "Nobody has voted on this yet."
+                } else{
                 $scope.pics[j].stars += rating;
                 $scope.pics[j].total += 1;
                 $scope.pics[j].rating = $scope.pics[j].stars / $scope.pics[j].total;
+              }
             }
           }//end first for loop
         }
