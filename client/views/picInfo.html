@@ -1,6 +1,6 @@
 <img class="closetPic" ng-src="client/uploads/{{info.image_name}}" ng-click="goToSingleOutfit(info.image_name, info.image_id)">
 <div class="ratingDiv">
-  <span ng-hide="!info.stars">
+  <span class="rating-text" ng-hide="info.stars">
     {{ info.rating.toPrecision(2) || "No votes yet!"  }}
   </span>
   <star-rating ng-if="info.stars" ng-model="info.rating" readonly="true"></star-rating>
