@@ -16,10 +16,10 @@ angular.module('myApp')
               };
               scope.confirmDelete = function(choice){
                 if (choice === 1){
-                scope.info.confirm = true;
+                  scope.info.confirm = true;
                 } else {
-                scope.info.confirm = false;
-              }
+                  scope.info.confirm = false;
+                }
              };
              scope.deleteImage = function(imageId, imageName){
               scope.info.remove(scope.info.image_id, scope.info.image_name);
