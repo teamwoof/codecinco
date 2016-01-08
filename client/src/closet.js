@@ -61,7 +61,7 @@ angular.module('myApp')
   };
 
   $('#fileImage').change(function(){
-    $('.image-choice').fadeOut(1000);
+    $('.image-choice').animate({ opacity: 0 })
     $('#closetContainer').fadeOut(1000);   
     if (this.files && this.files[0]) {
       var reader = new FileReader();

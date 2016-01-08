@@ -228,12 +228,12 @@ if(length < 3){
 while(length--){
 	totalSkin += skinRegions[length].length;
 }
-// console.log("   ");
-// console.log("   ");
-// console.log("   ");
-// console.log("totalSkin", totalSkin/totalPixels*100);
+console.log("   ");
+console.log("   ");
+console.log("   ");
+console.log("totalSkin", totalSkin/totalPixels*100);
 // check if there are more than 15% skin pixel in the image
-if((totalSkin/totalPixels)*100 < 12){
+if((totalSkin/totalPixels)*100 < 6){
   // if the percentage lower than 15, it's not nude!
   //console.log("it's not nude :) - total skin percent is "+((totalSkin/totalPixels)*100)+"% ");
   postMessage(false);
@@ -241,9 +241,9 @@ if((totalSkin/totalPixels)*100 < 12){
 }
 
 
-// console.log("skinRegions[0]", (skinRegions[0].length/totalSkin)*100);
-// console.log("skinRegions[1]", (skinRegions[1].length/totalSkin)*100);
-// console.log("skinRegions[2]", (skinRegions[2].length/totalSkin)*100);
+console.log("skinRegions[0]", (skinRegions[0].length/totalSkin)*100);
+console.log("skinRegions[1]", (skinRegions[1].length/totalSkin)*100);
+console.log("skinRegions[2]", (skinRegions[2].length/totalSkin)*100);
 // check if the largest skin region is less than 35% of the total skin count
 // AND if the second largest region is less than 30% of the total skin count
 // AND if the third largest region is less than 30% of the total skin count
@@ -278,14 +278,14 @@ if((skinRegions[0].length/totalSkin)*100 < 35){
 // TODO: include bounding polygon functionality
 // if there are more than 60 skin regions and the average intensity within the polygon is less than 0.25
 // the image is not nude
-// console.log("skinRegions.length",skinRegions.length);
+console.log("skinRegions.length",skinRegions.length);
 if(skinRegions.length > 7){
 	//console.log("it's not nude :) - more than 60 skin regions");
 	postMessage(false);
 	return;
 }
 
-if((skinRegions[2].length/totalSkin)*100 > 2){
+if((skinRegions[2].length/totalSkin)*100 > 0.2){
   // the image is not nude.
   //console.log("it's not nude :) - less than 35%,30%,30% skin in the biggest areas :" + ((skinRegions[0].length/totalSkin)*100) + "%, " + ((skinRegions[1].length/totalSkin)*100)+"%, "+((skinRegions[2].length/totalSkin)*100)+"%");
   postMessage(false);
