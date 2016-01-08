@@ -1,22 +1,7 @@
 
-<style>
-.fileUpload {
-    position: relative;
-    overflow: hidden;
-    margin: 10px;
-}
-.fileUpload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-</style>
-
 <div class='closet container col-md-12' ng-controller="ClosetCtrl">
 <div class='row'>
+
 
   <!-- <h3>add to your closet:</h3> -->
   <div class='clear'></div>
@@ -46,6 +31,7 @@
         </div>
       </form>
 
+
   <div class="closetTitle col-md-4 col-md-offset-4">Welcome to your closet, {{username}}</div>
   <div class='col-md-4 col-md-offset-4'>
     <div class="closetSubTitle">Show only:</div>
@@ -64,9 +50,21 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="closetTitle">Add to your closet</div>
       </div>
-
     </div>
-     <!--  <form action="/postimage" method="post" enctype="multipart/form-data" class='closetform'>
+  </div>
+</div>
+
+<br>
+
+  <!-- ng-repeat uses a directive called picInfo to display each image -->
+  <div class="card" ng-repeat="pic in pics | filter:customPicTypeFilter">
+    <pic-info info="pic"></pic-info>
+  </div>
+</div>
+
+     <!--
+      <form action="/postimage" method="post" enctype="multipart/form-data" class='closetform'>
+
           <div class="image-choice col-md-10 col-md-offset-2" ng-hide="imageChoice">
             <span class="btn btn-primary btn-file buttonBuffer">Upload Photo<input id="fileImage" type="file" name="upload" class="upload"></span>
             <button type="button" class="btn btn-primary buttonBuffer" ng-click="showCamera()">Turn on camera</button>
@@ -97,15 +95,3 @@
             </div>
           </div>
         </form> -->
-    </div>
-</div>
-
-<br>
-
-  <!-- ng-repeat uses a directive called picInfo to display each image -->
-  <div class="card" ng-repeat="pic in pics | filter:customPicTypeFilter">
-    <pic-info info="pic"></pic-info>
-  </div>
-
-</div>
-
