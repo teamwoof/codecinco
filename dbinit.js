@@ -109,7 +109,7 @@ postImage('http://www4.pictures.zimbio.com/mp/-6o3ufhQQ6fl.jpg', 'jlaw', 'jlaw4.
 //natalie
 postImage('http://3.bp.blogspot.com/-y2rSq8LNrBo/Vh5Qg4Y70yI/AAAAAAAAPcE/pphu-4XVynw/s1600/chronicles-of-her-blue-denim-shorts-nobody-skyline02.jpg', 'natalie', 'natalie1.jpg', 4);
 postImage('http://3.bp.blogspot.com/-SsKozErB1Zs/VhXYclog0MI/AAAAAAAAPVo/oSuSL9RcLbs/s1600/chronicles-of-her-new-york-5th-avenue-stripe-midi-dress-04.jpg', 'natalie', 'natalie2.jpg', 1);
-postImage('http://4.bp.blogspot.com/-PkjfaDcb-rY/VWGVqnSgZFI/AAAAAAAAPE8/JEGX-GVE67g/s1600/grey-chunky-rib-knit-sweater-high-neck-chronicles-of-her-02.jpg', 'natalie', 'natalie3.jpg', 2);
+postImage('http://4.bp.blogspot.com/-PkjfaDcb-rY/VWGVqnSgZFI/AAAAAAAAPE8/JEGX-GVE67g/s1600/grey-chunky-rib-knit-sweater-high-neck-chronicles-of-her-02.jpg', 'natalie', 'natalie3.jpg', 1);
 postImage('https://s-media-cache-ak0.pinimg.com/originals/28/bd/14/28bd145960de17cf6786f2d487659c99.jpg', 'natalie', 'natalie4.jpg', 2);
 postImage('http://ikuzolady.com/wp-content/uploads/2014/08/Ladies-Skirts.jpg', 'natalie', 'natalie5.jpg', 2);
 postImage('http://www.yomister.com/image/data/0/nike-all/Nike-Air-Max-Womens/Nike-Air-Max-90-VT/Nike-Air-Max-90-Womens-Shoes-Fur-2014-Releases-Red-New-Arrival-2803_1.jpg', 'natalie', 'natalie6.jpg', 3);
