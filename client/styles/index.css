@@ -123,19 +123,22 @@ a:hover, a:link {
   transform:         translate(0, -1em);
 }
 
-.percentage {
-  font-size: 14px;
-  font-weight: 700;
+.ratingDiv {
   margin: auto;
   bottom: 50px;
-  line-height: 60px;
-  width: 200px;
-  height: 60px;
   position: absolute;
   background: #fff;
   border: 1px solid #000;
-  border-bottom: 5px solid #000;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   text-align: center;
+}
+
+.rating-text{
+  font-size: 18px;
+  font-weight: 700;
+  padding: 7px;
 }
 
 .remove {
@@ -145,9 +148,17 @@ a:hover, a:link {
   text-align: center;
 }
 
-.fire {
-  width: 20px;
-  height: 20px;
+.removeConfirmation{
+  background-color: white;
+  border: 2px solid black;
+  -webkit-box-shadow: -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+}
+
+.boldEmphasis{
+  font-weight: bold;
+  padding: 8px;
 }
 
 .voteButton {
@@ -170,9 +181,74 @@ a:hover, a:link {
   text-align: center;
 }
 
+.closetTitle {
+  font-family: 'Catamaran', cursive;
+  font-size: 36px;
+}
+
+.closetSubTitle {
+  font-family: 'Catamaran', cursive;
+  font-size: 24px;
+  display: inline;
+}
+
+#filtermenu{
+  display: inline;
+  width: initial;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+#clothingTypeSelect{
+  width: initial;
+}
+
+.addToYourClosetContainer{
+  width: 480px;
+}
+
 .logo {
   width: 97%;
   margin: -350px 0 0 0;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#imgPreview {
+  width:  320px;
+  height: auto;
+}
+
+#camImage {
+  width:  320px;
+  height: auto;
+}
+
+#live{
+  width: 320px;
+}
+
+.buttonBuffer{
+  margin: 2px !important;
 }
 
 
@@ -268,7 +344,7 @@ input::-webkit-input-placeholder{
 }
 
 .star {
-  padding: 1px;
+  padding: 3px;
   color: #ddd;
   font-size: 20px;
   text-shadow: .05em .05em #aaa;

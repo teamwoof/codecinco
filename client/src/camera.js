@@ -31,9 +31,9 @@ function countdown(){
 
 function capture() {  
   var context = photo.getContext('2d');
-  photo.width = 640;
-  photo.height = 480;
-  context.drawImage(video, 0, 0, 640, 480);
+  photo.width = 320;
+  photo.height = 240;
+  context.drawImage(video, 0, 0, 320, 240);
 
   var data = photo.toDataURL('image/jpeg');
   window.captured = data;
