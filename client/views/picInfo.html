@@ -3,4 +3,10 @@
 	{{info.stars/info.total || "No votes yet!"}}
 	<star-rating ng-if="info.stars" ng-model="info.rating" readonly="true"></star-rating>
 </div>
-
+<div ng-if="info.confirm == false" class="remove" ng-click="confirmDelete(1)">
+      <img id="delete" src="client/img/delete-icon.jpg"/>
+</div>
+ <div class="remove" ng-if="info.confirm">Are you sure?
+        <button ng-click='deleteImage()'>yes</button>
+        <button ng-click="confirmDelete(0)">no</button>
+ </div>
