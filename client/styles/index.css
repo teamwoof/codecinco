@@ -121,19 +121,22 @@ a:hover, a:link {
   transform:         translate(0, -1em);
 }
 
-.percentage {
-  font-size: 14px;
-  font-weight: 700;
+.ratingDiv {
   margin: auto;
   bottom: 50px;
-  line-height: 60px;
-  width: 200px;
-  height: 60px;
   position: absolute;
   background: #fff;
   border: 1px solid #000;
-  border-bottom: 5px solid #000;
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   text-align: center;
+}
+
+.rating-text{
+  font-size: 18px;
+  font-weight: 700;
+  padding: 7px;
 }
 
 .remove {
@@ -199,7 +202,6 @@ a:hover, a:link {
 }
 
 .addToYourClosetContainer{
-  border: 1px solid black;
   width: 480px;
 }
 
@@ -339,7 +341,7 @@ input::-webkit-input-placeholder{
 }
 
 .star {
-  padding: 1px;
+  padding: 3px;
   color: #ddd;
   font-size: 20px;
   text-shadow: .05em .05em #aaa;
