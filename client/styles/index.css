@@ -68,9 +68,7 @@ input {
   margin-top: 53px;
 }
 .header-logo {
-  height: 190px;
-  width: 62%;
-  margin: auto;
+  margin: 30px auto;
 }
 .main {
   background-image: url(http://s21.postimg.org/cbxlj5x47/image.jpg);
@@ -109,15 +107,11 @@ a:hover, a:link {
 }
 
 .closetPic {
-  max-width: 140%;
-  min-height: 110%;
-  min-width: 110%;
-  margin-top: -20%;
-  margin-left: -10%;
+  width: 100%;
+  height: auto;
 }
 
 .closetPicContainer {
-  max-height: 270px;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -244,8 +238,7 @@ a:hover, a:link {
 }
 
 .logo {
-  width: 97%;
-  margin: -350px 0 0 0;
+  width: 100%;
 }
 
 .btn-file {
