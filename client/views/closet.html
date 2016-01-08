@@ -17,7 +17,7 @@
 
 <div class='closet container col-md-12' ng-controller="ClosetCtrl">
 <div class='row'>
-  <div class="closetTitle col-md-4 col-md-offset-4">Welcome to your closet</div>
+  <div class="closetTitle col-md-4 col-md-offset-4">Welcome to your closet, {{username}}</div>
   <div class='col-md-4 col-md-offset-4'>
     <div class="closetSubTitle">Show only:</div>
      <select id="filtermenu" class="form-control" name="search" ng-model="search">
@@ -75,9 +75,6 @@
   <!-- ng-repeat uses a directive called picInfo to display each image -->
   <div class="card" ng-repeat="pic in pics | filter:customPicTypeFilter">
     <pic-info info="pic"></pic-info>
-    <div class="remove" ng-click="removeImage(pic.image_id, pic.image_name); reloadPage()">
-      <img id="delete" src="client/img/delete-icon.jpg"/>
-    </div>
   </div>
 
 </div>
