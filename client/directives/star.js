@@ -24,7 +24,7 @@
         function updateStars() {
           scope.stars = [];
           for (var i = 0; i < scope.max; i++) {
-            console.log('scope', scope);
+            // console.log('scope', scope);
             scope.stars.push({
               filled: i < Math.round(scope.ratingValue)
             });

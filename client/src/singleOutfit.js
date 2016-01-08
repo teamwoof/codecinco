@@ -9,6 +9,8 @@ angular.module('myApp')
     	Register.register.fetchComments($stateParams.imageId)
     	.then(function(data){
     		$scope.comments = data.result;
+            console.log('$scope.comments: ', $scope.comments[0]);
+            // if($scope.comments.message)
     	})
 
     };	
