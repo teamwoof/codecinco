@@ -107,15 +107,11 @@ a:hover, a:link {
 }
 
 .closetPic {
-  max-width: 140%;
-  min-height: 110%;
-  min-width: 110%;
-  margin-top: -20%;
-  margin-left: -10%;
+  width: 100%;
+  height: auto;
 }
 
 .closetPicContainer {
-  max-height: 270px;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -196,7 +192,6 @@ a:hover, a:link {
 }
 
 .delete-container {
-  border-radius: 200px;
   overflow: hidden;
 }
 .upload-submit-button {
@@ -286,7 +281,7 @@ a:hover, a:link {
 
 .take-a-pic {
   position: absolute;
-  margin-left: 37%;
+  margin-left: 35%;
   color: #fff;
   background-color: #dd6b58;
   border: 0px solid transparent;
@@ -336,7 +331,7 @@ a:hover, a:link {
 
 
 #live{
-  width: 100%;
+  width: 96%;
 }
 
 .buttonBuffer{
