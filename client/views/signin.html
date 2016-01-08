@@ -5,8 +5,8 @@
 			<h3 class="sign-in-up-title">Sign In</h3>
 			<div class='clean'></div>
 		  <form novalidate ng-submit='signin()' class='signin form-horizontal'>
-		    <input class='form-control' type="text" placeholder='User' ng-model="user.username" /><br>
-		    <input class='form-control' type="password" placeholder='Password' ng-model="user.password" />
+		    <input class='form-control signin-text' type="text" placeholder='User' ng-model="user.username" /><br>
+		    <input class='form-control signin-text' type="password" placeholder='Password' ng-model="user.password" />
 		    <div ng-show="showErr" class='message-error'>{{err}}</div>
 		    <div class='clean'></div>
 		    <button class='btn btn-primary'>Enter Closet</button>

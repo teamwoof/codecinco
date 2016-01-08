@@ -199,7 +199,14 @@ a:hover, a:link {
   border-radius: 200px;
   overflow: hidden;
 }
-
+.upload-submit-button {
+  font-weight: 400;
+}
+.select-tag {
+  width: initial!important;
+  font-weight: 400;
+  font-size: 18px;
+}
 .closet {
   text-align: center;
 }
@@ -234,9 +241,11 @@ a:hover, a:link {
 }
 
 .clothingType {
-  margin-left: 22px;
+  margin-left: 32px;
 }
-
+.signin-text {
+  font-weight: 400;
+}
 .addToYourClosetContainer{
   width: 480px;
 }
@@ -431,6 +440,11 @@ input::-webkit-input-placeholder{
   font-family: 'Catamaran', serif;
   font-size: 1.2em;
   margin-right: 30px;
+  position: relative;
+  float: right;
+  height: 20px;
+  width: 100%;
+  margin-top: 140px;
 }
 .vote-image {
   display: block;
