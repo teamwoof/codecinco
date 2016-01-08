@@ -318,6 +318,13 @@ input::-webkit-input-placeholder{
   opacity: 0.9;
 }
 
+.back-btn {
+  color: #fff;
+}
+.back-btn:hover{
+  color: #333;
+  border-bottom: none;
+}
 .titleBox {
   background-color:#fdfdfd;
   padding:10px;
