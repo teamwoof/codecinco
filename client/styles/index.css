@@ -61,9 +61,7 @@ input {
   margin-top: 53px;
 }
 .header-logo {
-  height: 190px;
-  width: 62%;
-  margin: auto;
+  margin: 30px auto;
 }
 .main {
   background-image: url(http://s21.postimg.org/cbxlj5x47/image.jpg);
@@ -211,8 +209,7 @@ a:hover, a:link {
 }
 
 .logo {
-  width: 97%;
-  margin: -350px 0 0 0;
+  width: 100%;
 }
 
 .btn-file {
