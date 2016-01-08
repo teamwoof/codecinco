@@ -13,10 +13,9 @@ $scope.comment.message = '';
 $scope.vote = function(){
   Register.register.vote(parseInt($scope.rating.value), $scope.username, $scope.imageId, $scope.comment.message)
   .then(function(data){
-    $scope.updated = true;
-        $scope.getImage();
-        $scope.rating.value = 0;
-        $scope.comment.message = '';
+    $scope.getImage();
+    $scope.rating.value = 0;
+    $scope.comment.message = '';
   });
 
 };
