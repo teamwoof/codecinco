@@ -36,12 +36,28 @@ function capture() {
   context.drawImage(video, 0, 0, 640, 480);
 
   var data = photo.toDataURL('image/jpeg');
-  window.captured = data;
   video.remove();
-  var image = new Image();
-  image.src = data;
-  canvas.drawImage(image,0,0);
+  // var image = new Image();
+  // image.src = data;
+  // canvas.drawImage(image,0,0);
   feed.getVideoTracks()[0].stop();
+  document.getElementById('camContainer').remove();
+  $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+  $('#imgPreview').attr('src', data);
+  setTimeout(function(){
+    nude.load('imgPreview');
+    nude.scan(function(result){
+      if(result){
+        $('#imgPreview').attr('src', './client/img/nonudity.jpg');
+        $('#imgPreview').css("visibility","visible");
+        setTimeout(function(){$('#imgPreview').fadeOut(1000);},1000);
+        setTimeout(function(){location.reload();},3000);
+      }else{
+        var formImage = document.getElementById("camImage");
+        formImage.value = data;
+      }
+    });
+  },10);
 }
 
 

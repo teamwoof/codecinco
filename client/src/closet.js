@@ -69,8 +69,21 @@ angular.module('myApp')
     if (this.files && this.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+        $('#imgPreviewPlaceholder').append('<img id="imgPreview" style="visibility:hidden;" src="">');
         $('#imgPreview').attr('src', e.target.result);
+
+        setTimeout(function(){
+          $window.nude.load('imgPreview');
+          $window.nude.scan(function(result){
+            $('#imgPreview').attr('src', '');
+            if(result){
+              $('#imgPreview').attr('src', './client/img/nonudity.jpg');
+              setTimeout(function(){$('#imgPreview').fadeOut(1000);},1000);
+              setTimeout(function(){$scope.reloadPage();},3000);
+            }else $('#imgPreview').attr('src', e.target.result);
+            $('#imgPreview').css("visibility","visible");
+          });
+        },10);
       }
       reader.readAsDataURL(this.files[0]);
     }
@@ -78,22 +91,12 @@ angular.module('myApp')
 
   $scope.takePhoto = function(){
     $window.countdown();
-    setTimeout(function(){
-      $scope.savePhoto();
-    },countown_sec * 1020)
   }
 
   $scope.showCamera = function(){
     $window.init()
     $scope.webcam = true;
   }
-
-  $scope.savePhoto = function(){
-    var formImage = document.getElementById("camImage");
-    formImage.value = $window.captured;
-    console.log(formImage.value);
-  }
-
 
 
   // initialize page with closet images if auth is good

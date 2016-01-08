@@ -195,8 +195,10 @@ a:hover, a:link {
 }
 
 #imgPreview {
-  width:  200px;
-  height: 200px;
+  max-width: 640px;
+  height: auto;
+  max-height: 650px;
+  width: auto;
 }
 
 #camImage {
