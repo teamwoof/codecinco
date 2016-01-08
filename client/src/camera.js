@@ -31,17 +31,35 @@ function countdown(){
 
 function capture() {  
   var context = photo.getContext('2d');
-  photo.width = 320;
-  photo.height = 240;
-  context.drawImage(video, 0, 0, 320, 240);
+  photo.width = 520;
+  photo.height = 390;
+  context.drawImage(video, 0, 0, 520, 390);
 
   var data = photo.toDataURL('image/jpeg');
-  window.captured = data;
   video.remove();
-  var image = new Image();
-  image.src = data;
-  canvas.drawImage(image,0,0);
+  // var image = new Image();
+  // image.src = data;
+  // canvas.drawImage(image,0,0);
   feed.getVideoTracks()[0].stop();
+  document.getElementById('camContainer').remove();
+  $('#imgPreviewPlaceholder').css("visibility","visible");
+  $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+  $('#imgPreview').attr('src', data);
+  setTimeout(function(){
+    nude.load('imgPreview');
+    nude.scan(function(result){
+      if(result){
+        $('#imgPreview').attr('src', './client/img/nonudity.jpg');
+        $('#imgPreview').css("visibility","visible");
+        setTimeout(function(){$('#imgPreview').fadeOut(1000);},1000);
+        setTimeout(function(){location.reload();},3000);
+      }else{
+        var formImage = document.getElementById("camImage");
+        formImage.value = data;
+      }
+    });
+  },10);
+  $('.clothingType').fadeIn(1000);
 }
 
 

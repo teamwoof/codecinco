@@ -61,34 +61,51 @@ angular.module('myApp')
   };
 
   $('#fileImage').change(function(){
+    $('.image-choice').fadeOut(1000);
+    $('#closetContainer').fadeOut(1000);   
     if (this.files && this.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
+        $('#imgPreviewPlaceholder').append('<img id="imgPreview" style="visibility:hidden;" src="">');
         $('#imgPreview').attr('src', e.target.result);
+
+        setTimeout(function(){
+          $window.nude.load('imgPreview');
+          $window.nude.scan(function(result){
+            $('#imgPreview').attr('src', '');
+            if(result){
+              $('#imgPreview').attr('src', './client/img/nonudity.jpg');
+              $('#imgPreviewPlaceholder').fadeIn(1000);
+              setTimeout(function(){$('#imgPreview').fadeOut(1000);},1000);
+              setTimeout(function(){$scope.reloadPage();},3000);
+            }else {
+              $('#imgPreviewPlaceholder').fadeIn(1000);
+              $('#imgPreview').attr('src', e.target.result);
+              $('.clothingType').fadeIn(1000);
+            }
+            $('#imgPreview').css("visibility","visible");
+          });
+        },10);
       }
       reader.readAsDataURL(this.files[0]);
     }
   });
 
   $scope.takePhoto = function(){
+    $('.take-a-pic').remove();
     $window.countdown();
-    setTimeout(function(){
-      $scope.savePhoto();
-    },countown_sec * 1020)
   }
 
   $scope.showCamera = function(){
-    $window.init()
+    $("body").css("background-color", "#000");
     $scope.webcam = true;
+    $('.image-choice').fadeOut(1000);
+    $('#closetContainer').fadeOut(1000);
+    setTimeout(function(){
+      $window.init()
+      $('.take-a-pic').fadeIn(3000);
+    },800);
   }
-
-  $scope.savePhoto = function(){
-    var formImage = document.getElementById("camImage");
-    formImage.value = $window.captured;
-    console.log(formImage.value);
-  }
-
 
 
   // initialize page with closet images if auth is good
