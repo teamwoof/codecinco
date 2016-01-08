@@ -13,7 +13,10 @@ a {
   display: inline;
 	font-family: 'Catamaran', serif;
 }
-
+.user-comment {
+  font-weight: 700;
+  font-size: 1em;
+}
 .nav-pad {
   padding-right: 140px;
 }
