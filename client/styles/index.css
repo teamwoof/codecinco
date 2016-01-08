@@ -3,11 +3,12 @@ body {
   background-repeat: no-repeat;
   font-family: 'Catamaran', serif;
   background-size: cover; 
+  font-weight: 100;
 }
 a {
   font-family: "Catamaran", serif;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   text-align: center;
   display: inline;
 	font-family: 'Catamaran', serif;
@@ -35,6 +36,7 @@ input {
 .nav-brand-logo {
   height: 50px;
   width: 124px;
+  margin-top: -10px;
 }
 .message-error {
   height: 35px;
@@ -249,6 +251,7 @@ a:hover, a:link {
   margin: 2px !important;
 }
 
+
 .closetbuttons {
   display: inline;
 }
@@ -391,8 +394,16 @@ input::-webkit-input-placeholder{
   margin: 10px auto;
   background: #fdfdfd;
   opacity: 0.9;
+  padding-bottom: 43px;
 }
 
+.back-btn {
+  color: #fff;
+}
+.back-btn:hover{
+  color: #333;
+  border-bottom: none;
+}
 .titleBox {
   background-color:#fdfdfd;
   padding:10px;
