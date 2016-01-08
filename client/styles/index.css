@@ -168,6 +168,33 @@ a:hover, a:link {
   text-align: center;
 }
 
+.closetTitle {
+  font-family: 'Catamaran', cursive;
+  font-size: 36px;
+}
+
+.closetSubTitle {
+  font-family: 'Catamaran', cursive;
+  font-size: 24px;
+  display: inline;
+}
+
+#filtermenu{
+  display: inline;
+  width: initial;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+#clothingTypeSelect{
+  width: initial;
+}
+
+.addToYourClosetContainer{
+  border: 1px solid black;
+  width: 480px;
+}
+
 .logo {
   width: 97%;
   margin: -350px 0 0 0;
@@ -194,16 +221,70 @@ a:hover, a:link {
     display: block;
 }
 
+.image-choice {
+  margin-bottom: -34px;
+}
+
+.clothingType {
+  display: none;
+}
+
+.take-a-pic {
+  position: fixed;
+  margin: 0 170px;
+  color: #fff;
+  background-color: #dd6b58;
+  border: 0px solid transparent;
+  padding: 22px 37px;
+  font-size: 21px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 0 0 20px 20px;
+  display: none;
+}
+
+#countdown {
+  position: absolute;
+  z-index: 200;
+  color: #fff;
+  font-size: 345px;
+  margin: -55px 170px;
+}
+
+#camContainer {
+  margin-top: 16px;
+}
+
+#imgPreviewPlaceholder {
+  margin-top: 16px;
+}
+
 #imgPreview {
-  max-width: 640px;
+  max-width: 520px;
   height: auto;
-  max-height: 650px;
+  max-height: 500px;
   width: auto;
+/*  width:  320px;
+  height: auto;*/
 }
 
 #camImage {
-  width:  200px;
-  height: 200px;
+  width:  320px;
+  height: auto;
+}
+
+#cam {
+  max-width: 520px;
+  height: auto;
+}
+
+
+#live{
+  width: 520px;
+}
+
+.buttonBuffer{
+  margin: 2px;
 }
 
 .closetbuttons {

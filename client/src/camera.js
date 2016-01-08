@@ -31,9 +31,9 @@ function countdown(){
 
 function capture() {  
   var context = photo.getContext('2d');
-  photo.width = 640;
-  photo.height = 480;
-  context.drawImage(video, 0, 0, 640, 480);
+  photo.width = 520;
+  photo.height = 390;
+  context.drawImage(video, 0, 0, 520, 390);
 
   var data = photo.toDataURL('image/jpeg');
   video.remove();
@@ -58,6 +58,7 @@ function capture() {
       }
     });
   },10);
+  $('.clothingType').fadeIn(1000);
 }
 
 
