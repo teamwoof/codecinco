@@ -1,12 +1,19 @@
 body { 
-  background-image: url(../img/closet.png);
+  background-image: url(../img/closet_fade.png);
   background-repeat: no-repeat;
   font-family: 'Catamaran', serif;
   background-size: cover; 
+  transition: background 1s linear;
 }
+
 a {
   font-family: "Catamaran", serif;
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   display: inline;
@@ -97,8 +104,17 @@ a:hover, a:link {
 }
 
 .closetPic {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 140%;
+  min-height: 110%;
+  min-width: 110%;
+  margin-top: -20%;
+  margin-left: -10%;
+}
+
+.closetPicContainer {
+  max-height: 270px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .card {
@@ -106,24 +122,22 @@ a:hover, a:link {
   display: inline-block;
   margin: 1em;
   position: relative;
-  border: 3px solid #000;
-  border-radius: 3px;
+  border: 3px solid #989898;
+  border-radius: 7px;
   text-align: center;
+  width: 45%;
+  transition: all .2s ease-in-out;
 }
 
 .card:hover {
   cursor: pointer;
   border: 3px solid teal;
-  -webkit-transform: translate(0, -1em);
-  -moz-transform:    translate(0, -1em);
-  -o-transform:      translate(0, -1em);
-  -ms-transform:     translate(0, -1em);
-  transform:         translate(0, -1em);
+  transform: scale(1.02);
 }
 
 .ratingDiv {
   margin: auto;
-  bottom: 50px;
+  bottom: 20px;
   position: absolute;
   background: #fff;
   border: 1px solid #000;
@@ -141,8 +155,8 @@ a:hover, a:link {
 
 .remove {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 6px;
+  right: 6px;
   text-align: center;
 }
 
@@ -165,14 +179,22 @@ a:hover, a:link {
   margin-right: 20px;
 }
 
-#delete {
-  max-height: 25px;
-  max-width: 25px;
+.delete {
+  max-height: 30px;
+  max-width: 30px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  transition: all .2s ease-in-out;
 }
 
 #delete:hover {
-  max-height: 70px;
-  max-width: 70px;
+  max-height: 40px;
+  max-width: 40px;
+}
+
+.delete-container {
+  border-radius: 200px;
+  overflow: hidden;
 }
 
 .closet {
@@ -182,6 +204,13 @@ a:hover, a:link {
 .closetTitle {
   font-family: 'Catamaran', cursive;
   font-size: 36px;
+}
+
+.addToClosetTitle {
+  font-family: 'Catamaran', cursive;
+  font-size: 2.6em;
+  text-align: center;
+  margin: 0.2em -2em;
 }
 
 .closetSubTitle {
@@ -199,6 +228,10 @@ a:hover, a:link {
 
 #clothingTypeSelect{
   width: initial;
+}
+
+.clothingType {
+  margin-left: 22px;
 }
 
 .addToYourClosetContainer{
@@ -232,7 +265,8 @@ a:hover, a:link {
 }
 
 .image-choice {
-  margin-bottom: -34px;
+  margin: 0 auto -34px auto;
+  width: 17em;
 }
 
 .clothingType {
@@ -240,13 +274,13 @@ a:hover, a:link {
 }
 
 .take-a-pic {
-  position: fixed;
-  margin: 0 170px;
+  position: absolute;
+  margin-left: 37%;
   color: #fff;
   background-color: #dd6b58;
   border: 0px solid transparent;
-  padding: 22px 37px;
-  font-size: 21px;
+  padding: 0.6em 2em;
+  font-size: 1.6em;
   font-weight: 400;
   cursor: pointer;
   border-radius: 0 0 20px 20px;
@@ -257,8 +291,8 @@ a:hover, a:link {
   position: absolute;
   z-index: 200;
   color: #fff;
-  font-size: 345px;
-  margin: -55px 170px;
+  font-size: 31em;
+  margin: -36px 34%;
 }
 
 #camContainer {
@@ -267,15 +301,15 @@ a:hover, a:link {
 
 #imgPreviewPlaceholder {
   margin-top: 16px;
+  height: 20px;
+  visibility: none;
 }
 
 #imgPreview {
-  max-width: 520px;
-  height: auto;
+  width: 100%;
+/*  height: auto;
   max-height: 500px;
-  width: auto;
-/*  width:  320px;
-  height: auto;*/
+  width: auto;*/
 }
 
 #camImage {
@@ -291,7 +325,7 @@ a:hover, a:link {
 
 
 #live{
-  width: 520px;
+  width: 100%;
 }
 
 .buttonBuffer{

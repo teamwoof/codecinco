@@ -5,9 +5,10 @@
 
   <!-- <h3>add to your closet:</h3> -->
   <div class='clear'></div>
-  <div class='col-md-6'>
+  <div class='col-md-6 col-md-offset-3'>
     <form action="/postimage" method="post" enctype="multipart/form-data" class='closetform'>
         <div class="image-choice" ng-hide="imageChoice">
+          <div class="addToClosetTitle">Add to your closet</div>
           <span class="btn btn-primary btn-file">Upload Photo<input id="fileImage" type="file" name="upload" class="upload"></span>
           <button type="button" class="btn btn-primary" ng-click="showCamera()">Turn on camera</button>
         </div>
@@ -30,68 +31,33 @@
           <input type="submit" value="Upload File" class="pure-button">
         </div>
       </form>
-
-
-  <div class="closetTitle col-md-4 col-md-offset-4">Welcome to your closet, {{username}}</div>
-  <div class='col-md-4 col-md-offset-4'>
-    <div class="closetSubTitle">Show only:</div>
-     <select id="filtermenu" class="form-control" name="search" ng-model="search">
-        <option ng-selected="true" value="-1">All</option>
-        <option value="1">Tops</option>
-        <option value="2">Bottoms</option>
-        <option value="3">Shoes</option>
-        <option value="4">Outfit</option>
-      </select>
   </div>
-</div>
-<div class='row'>
-  <div class='addToYourClosetContainer col-md-4 col-md-offset-4'>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="closetTitle">Add to your closet</div>
+  <div class='clear'></div>
+  <div id="closetContainer" class='col-md-8 col-md-offset-2'>
+    <div class="closetTitle col-md-12">Welcome to your closet, {{username}}</div>
+    <div class='col-md-4 col-md-offset-4'>
+      <div class="closetSubTitle">Show only:</div>
+       <select id="filtermenu" class="form-control" name="search" ng-model="search">
+          <option ng-selected="true" value="-1">All</option>
+          <option value="1">Tops</option>
+          <option value="2">Bottoms</option>
+          <option value="3">Shoes</option>
+          <option value="4">Outfit</option>
+        </select>
+    </div>
+<!--     <div class='row'>
+      <div class='addToYourClosetContainer col-md-4 col-md-offset-4'>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="closetTitle">Add to your closet</div>
+          </div>
+        </div>
       </div>
+    </div> -->
+    <br>
+    <!-- ng-repeat uses a directive called picInfo to display each image -->
+    <div class="card" ng-repeat="pic in pics | filter:customPicTypeFilter">
+      <pic-info info="pic"></pic-info>
     </div>
   </div>
 </div>
-
-<br>
-
-  <!-- ng-repeat uses a directive called picInfo to display each image -->
-  <div class="card" ng-repeat="pic in pics | filter:customPicTypeFilter">
-    <pic-info info="pic"></pic-info>
-  </div>
-</div>
-
-     <!--
-      <form action="/postimage" method="post" enctype="multipart/form-data" class='closetform'>
-
-          <div class="image-choice col-md-10 col-md-offset-2" ng-hide="imageChoice">
-            <span class="btn btn-primary btn-file buttonBuffer">Upload Photo<input id="fileImage" type="file" name="upload" class="upload"></span>
-            <button type="button" class="btn btn-primary buttonBuffer" ng-click="showCamera()">Turn on camera</button>
-          </div>
-          <div class="col-md-11 col-md-offset-1">
-            <camera ng-show="webcam"></camera>
-            <div class="col-md-3 col-md-offset-3">
-              <button ng-show="webcam" type="button" class="btn btn-primary" ng-click="takePhoto()">Take a pic!</button>
-            </div>
-          </div>
-          <div id="imgPreviewPlaceholder" class="col-md-11 col-md-offset-1"></div>
-          <input type="hidden" name="name" value="{{username}}">
-          <input id="camImage" type="hidden" name="image" value="">
-          <div class="row">
-            <div class="col-md-3 col-md-offset-3">
-              <select id="clothingTypeSelect" class="form-control" name="clothingType" required>
-                <option value="">Please select a clothing type</option>
-                <option value="1">Tops</option>
-                <option value="2">Bottoms</option>
-                <option value="3">Shoes</option>
-                <option value="4">Outfit</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 col-md-offset-4">
-              <input type="submit" value="Upload File" class="btn btn-primary">
-            </div>
-          </div>
-        </form> -->

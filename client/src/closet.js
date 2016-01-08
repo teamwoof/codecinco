@@ -71,7 +71,7 @@ angular.module('myApp')
 
   $('#fileImage').change(function(){
     $('.image-choice').fadeOut(1000);
-    $('.clothingType').fadeIn(1000);
+    $('#closetContainer').fadeOut(1000);   
     if (this.files && this.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
@@ -84,9 +84,14 @@ angular.module('myApp')
             $('#imgPreview').attr('src', '');
             if(result){
               $('#imgPreview').attr('src', './client/img/nonudity.jpg');
+              $('#imgPreviewPlaceholder').fadeIn(1000);
               setTimeout(function(){$('#imgPreview').fadeOut(1000);},1000);
               setTimeout(function(){$scope.reloadPage();},3000);
-            }else $('#imgPreview').attr('src', e.target.result);
+            }else {
+              $('#imgPreviewPlaceholder').fadeIn(1000);
+              $('#imgPreview').attr('src', e.target.result);
+              $('.clothingType').fadeIn(1000);
+            }
             $('#imgPreview').css("visibility","visible");
           });
         },10);
@@ -101,10 +106,14 @@ angular.module('myApp')
   }
 
   $scope.showCamera = function(){
-    $window.init()
-    $('.image-choice').fadeOut(1000);
+    $("body").css("background-color", "#000");
     $scope.webcam = true;
-    $('.take-a-pic').fadeIn(3000);
+    $('.image-choice').fadeOut(1000);
+    $('#closetContainer').fadeOut(1000);
+    setTimeout(function(){
+      $window.init()
+      $('.take-a-pic').fadeIn(3000);
+    },800);
   }
 
 

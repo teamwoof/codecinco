@@ -42,6 +42,7 @@ function capture() {
   // canvas.drawImage(image,0,0);
   feed.getVideoTracks()[0].stop();
   document.getElementById('camContainer').remove();
+  $('#imgPreviewPlaceholder').css("visibility","visible");
   $('#imgPreviewPlaceholder').append('<img id="imgPreview" src="">');
   $('#imgPreview').attr('src', data);
   setTimeout(function(){
