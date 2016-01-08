@@ -341,8 +341,13 @@ input::-webkit-input-placeholder{
   border: 6px solid black;
 }
 
-
 .star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.star-rating-vote-page {
   margin-bottom: 8px;
   padding: 3px;
   display: inline-block;
