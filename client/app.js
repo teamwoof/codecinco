@@ -43,7 +43,7 @@ angular.module('myApp', [
       })
 
       .state('vote', {
-        url: '/votes',
+        url: '/vote',
         views: {
             "nav": {templateUrl: "client/views/nav.html"},
             "main":{templateUrl: 'client/views/vote.html'}
