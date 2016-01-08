@@ -8,7 +8,8 @@
 <div ng-if="info.confirm == false" class="remove" ng-click="confirmDelete(1)">
       <img id="delete" src="client/img/delete-icon.jpg"/>
 </div>
- <div class="remove" ng-if="info.confirm">Are you sure?
-        <button ng-click='deleteImage()'>yes</button>
-        <button ng-click="confirmDelete(0)">no</button>
+ <div class="remove removeConfirmation" ng-if="info.confirm">
+        <p class="boldEmphasis">Are you sure?</p>
+        <button class="btn btn-danger buttonBuffer" ng-click='deleteImage()'>Yes</button>
+        <button class="btn btn-success buttonBuffer" ng-click="confirmDelete(0)">No</button>
  </div>

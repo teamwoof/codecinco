@@ -146,9 +146,17 @@ a:hover, a:link {
   text-align: center;
 }
 
-.fire {
-  width: 20px;
-  height: 20px;
+.removeConfirmation{
+  background-color: white;
+  border: 2px solid black;
+  -webkit-box-shadow: -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         -9px 9px 9px 0px rgba(50, 50, 50, 0.75);
+}
+
+.boldEmphasis{
+  font-weight: bold;
+  padding: 8px;
 }
 
 .voteButton {
@@ -239,7 +247,7 @@ a:hover, a:link {
 }
 
 .buttonBuffer{
-  margin: 2px;
+  margin: 2px !important;
 }
 
 .closetbuttons {
