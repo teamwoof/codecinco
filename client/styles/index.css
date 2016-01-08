@@ -107,15 +107,11 @@ a:hover, a:link {
 }
 
 .closetPic {
-  max-width: 140%;
-  min-height: 110%;
-  min-width: 110%;
-  margin-top: -20%;
-  margin-left: -10%;
+  width: 100%;
+  height: auto;
 }
 
 .closetPicContainer {
-  max-height: 270px;
   border-radius: 3px;
   overflow: hidden;
 }
