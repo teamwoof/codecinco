@@ -7,6 +7,6 @@
       <img id="delete" src="client/img/delete-icon.jpg"/>
 </div>
  <div class="remove" ng-if="info.confirm">Are you sure?
-        <button ng-click="removeImage(pic.image_id, pic.image_name); reloadPage()">yes</button>
+        <button ng-click='deleteImage()'>yes</button>
         <button ng-click="confirmDelete(0)">no</button>
  </div>

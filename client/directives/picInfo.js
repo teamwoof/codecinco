@@ -1,7 +1,7 @@
 angular.module('myApp')
   .directive('picInfo', function($state){
     return {
-      restrict: 'E',
+      restrict: 'EA',
       scope: {
         info: '='
       },
@@ -15,13 +15,15 @@ angular.module('myApp')
                 $state.go('singleOutfit', {imageUrl: imageUrl, imageId: imageId});
               };
               scope.confirmDelete = function(choice){
-                console.log('something')
                 if (choice === 1){
                 scope.info.confirm = true;
                 } else {
                 scope.info.confirm = false;
               }
              };
+             scope.deleteImage = function(imageId, imageName){
+              scope.info.remove(scope.info.image_id, scope.info.image_name);
+             }
       }
     };
   });
