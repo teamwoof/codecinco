@@ -12,7 +12,7 @@
         <div ng-if="updated">Vote Accepted</div>
       </form>
       <div class="">
-        <div class="actionBox">
+        <div class="actionBox" ng-if="imageId !== -1">
           <form class="form-inline" role="form">
             <div class="form-group">
               <textarea ng-model="comment.message" class="text-area-control" type="text" placeholder="Have an opinion? Leave a comment!"> </textarea>

@@ -3,11 +3,12 @@ body {
   background-repeat: no-repeat;
   font-family: 'Catamaran', serif;
   background-size: cover; 
+  font-weight: 100;
 }
 a {
   font-family: "Catamaran", serif;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   text-align: center;
   display: inline;
 	font-family: 'Catamaran', serif;
@@ -35,6 +36,7 @@ input {
 .nav-brand-logo {
   height: 50px;
   width: 124px;
+  margin-top: -10px;
 }
 .message-error {
   height: 35px;
@@ -173,36 +175,6 @@ a:hover, a:link {
   margin: -350px 0 0 0;
 }
 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
-}
-
-#imgPreview {
-  width:  200px;
-  height: 200px;
-}
-
-#camImage {
-  width:  200px;
-  height: 200px;
-}
 
 .closetbuttons {
   display: inline;
@@ -346,6 +318,7 @@ input::-webkit-input-placeholder{
   margin: 10px auto;
   background: #fdfdfd;
   opacity: 0.9;
+  padding-bottom: 43px;
 }
 
 .titleBox {
