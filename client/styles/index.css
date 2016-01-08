@@ -227,6 +227,7 @@ a:hover, a:link {
 #filtermenu{
   display: inline;
   width: initial;
+  font-weight: 400;
   margin-left: 5px;
   margin-bottom: 3px;
 }
