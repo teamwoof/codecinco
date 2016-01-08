@@ -68,7 +68,6 @@ routes.post('/signup', function (req, res){
         })
        
       }else if(result.rows[0].username === username){
-         console.log('result', result);
          res.status(401).json({answer: 'Username already exists!'}); 
       }
     });
@@ -108,12 +107,10 @@ routes.post('/postimage', function (req, res){
       var temp_path = this.openedFiles[0].path;
       /* The file name of the uploaded file */
       var file_name = this.openedFiles[0].name;
-      console.log(file_name);
       var getExt = /(?:\.([^.]+))?$/;
       var ext = getExt.exec(file_name)[1]; 
       file_name = file_name.replace(ext,""); 
       file_name = file_name + Math.floor(Math.random()*9999999999) + "." + ext;
-      //console.log("name", file_name, "rand", Math.floor(Math.random()*9999999999), "ext", ext);
     }
 
     /* Location where we want to copy the uploaded file */
@@ -124,7 +121,6 @@ routes.post('/postimage', function (req, res){
         fs.writeFile(new_location + file_name, decodedImage, function(err) {
           if (err) console.error(err);
           else {
-            console.log(file_name);
             saveToDB();
           }
         });
@@ -138,7 +134,6 @@ routes.post('/postimage', function (req, res){
         if(err){
           console.error('error connecting to the DB:', err);
         }
-        // console.log('username', username);
         client.query('SELECT user_id FROM users WHERE username = $1', [username], function(err, result){
           var user_id = result.rows[0].user_id;
           if(err){
@@ -146,7 +141,6 @@ routes.post('/postimage', function (req, res){
           }
           else
           {
-            // console.log('select user result', result);
             client.query('INSERT INTO images (image_name, user_id, type_id) VALUES ($1, $2, $3)', [file_name, user_id, clothing_type], function (err, result){
               if(err){
                 console.error(err);
@@ -213,7 +207,6 @@ routes.post('/closet', function (req, res){
               console.error('error fetching closet images: ', err);
             }
             else{
-              console.log("result", result);
               closetItems.pics = result.rows;
 
                 //grab all of the votes for each user pic
@@ -315,7 +308,6 @@ routes.post('/vote', function (req, res){
               console.error('error inserting vote into votes table: ', err);
             }
             else{
-              console.log('inserted');
               res.status(201).json({result: result.rows});
               done();
             }

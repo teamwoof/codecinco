@@ -1,6 +1,15 @@
 <img class="closetPic" ng-src="client/uploads/{{info.image_name}}" ng-click="goToSingleOutfit(info.image_name, info.image_id)">
-<div class="percentage">
-	{{info.stars/info.total || 0 | limitTo:3}}
-	<star-rating ng-model="info.rating" readonly="true"></star-rating>
+<div class="ratingDiv">
+  <span class="rating-text">
+    {{ info.rating || "No votes yet!"  }}
+  </span>
+  <star-rating ng-if="info.stars" ng-model="info.rating" readonly="true"></star-rating>
 </div>
-
+<div ng-if="info.confirm == false" class="remove" ng-click="confirmDelete(1)">
+      <img id="delete" src="client/img/delete-icon.jpg"/>
+</div>
+ <div class="remove removeConfirmation" ng-if="info.confirm">
+        <p class="boldEmphasis">Are you sure?</p>
+        <button class="btn btn-danger buttonBuffer" ng-click='deleteImage()'>Yes</button>
+        <button class="btn btn-success buttonBuffer" ng-click="confirmDelete(0)">No</button>
+ </div>
