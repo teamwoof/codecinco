@@ -5,6 +5,7 @@ angular.module('myApp')
     $scope.header = 'You will find your closet here';
     $scope.username = $window.localStorage.getItem('username');
     $scope.search = "-1";
+    $scope.confirm = false;
 
     $scope.getCloset = function(){
 
@@ -17,6 +18,10 @@ angular.module('myApp')
         for(var j = 0; j<data.pics.length; j++){
           $scope.pics[j].total = 0; //total number of votes
           $scope.pics[j].stars = 0; //total number of 'up' votes
+          $scope.pics[j].confirm = false;
+          $scope.pics[j].remove = $scope.removeImage;
+          $scope.pics[j].test = $scope.test;
+
             //loop through every vote that belongs to one of the user's pictures
             for(var i = 0; i<data.votes.length; i++){
               var row = data.votes[i]; //data.votes is an array of objects, so this grabs the individual object
@@ -41,14 +46,17 @@ angular.module('myApp')
       }); //end .then
     };
 
+  $scope.test = function(){
+    console.log('test');
+  }
   $scope.removeImage = function(imageId, imageName){
-    console.log('inside of remove image function');
-    console.log('current image ID', imageId);
-    console.log('current image NAME', imageName);
+    console.log('removing');
     Register.register.removeImage(imageId, imageName)
     .then(function(data){
       console.log(data);
+      $scope.reloadPage();
     })
+
   };
 
   $scope.customPicTypeFilter = function (pic) {
