@@ -25,7 +25,7 @@ a {
   font-size: 1em;
 }
 .nav-pad {
-  padding-right: 140px;
+  padding-right: 140px; 
 }
 
 .sign-in-up-title {
@@ -68,10 +68,7 @@ input {
   margin-top: 53px;
 }
 .header-logo {
-  height: 190px;
-  width: 47%;
-  margin: 67px auto -67px auto;
-  position: relative;
+  margin: 30px auto;
 }
 .main {
   background-image: url(http://s21.postimg.org/cbxlj5x47/image.jpg);
@@ -254,9 +251,7 @@ a:hover, a:link {
   font-weight: 400;
 }*/
 .logo {
-  width: 97%;
-  margin: -350px 0 0 0;
-  position: relative;
+  width: 100%;
 }
 
 .btn-file {
