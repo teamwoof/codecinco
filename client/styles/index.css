@@ -69,8 +69,9 @@ input {
 }
 .header-logo {
   height: 190px;
-  width: 62%;
-  margin: auto;
+  width: 47%;
+  margin: 67px auto -67px auto;
+  position: relative;
 }
 .main {
   background-image: url(http://s21.postimg.org/cbxlj5x47/image.jpg);
@@ -242,10 +243,13 @@ a:hover, a:link {
 .addToYourClosetContainer{
   width: 480px;
 }
-
+.form-control {
+  font-weight: 400;
+}
 .logo {
   width: 97%;
   margin: -350px 0 0 0;
+  position: relative;
 }
 
 .btn-file {
