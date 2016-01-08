@@ -15,7 +15,7 @@ angular.module('myApp')
 
       Register.register.signin(user)
         .then(function(data){
-          console.log(' signin data from our authjs', data);
+          // console.log(' signin data from our authjs', data);
           Authorization.authorized = true;
           $window.localStorage.setItem('authtoken', data.token);
           $window.localStorage.setItem('username', data.username);

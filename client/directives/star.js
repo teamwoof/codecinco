@@ -33,10 +33,10 @@
           }
       };
         scope.toggle = function(index) {
-          console.log('clicked');
-          console.log(index);
+          // console.log('clicked');
+          // console.log(index);
           if (scope.readonly == undefined || scope.readonly === false){
-            console.log(scope);
+            // console.log(scope);
             scope.ratingValue = index + 1;
             updateStars();
             scope.onRatingSelect({
