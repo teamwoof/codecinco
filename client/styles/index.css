@@ -121,18 +121,21 @@ a:hover, a:link {
   transform:         translate(0, -1em);
 }
 
-.percentage {
-  font-size: 14px;
-  font-weight: 700;
+.ratingDiv {
+/*  font-size: 14px;
+  font-weight: 700;*/
   margin: auto;
   bottom: 50px;
-  line-height: 60px;
-  width: 200px;
-  height: 60px;
+/*  line-height: 60px;*/
+/*  width: 200px;
+  height: 60px;*/
   position: absolute;
   background: #fff;
   border: 1px solid #000;
-  border-bottom: 5px solid #000;
+-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  /*border-bottom: 5px solid #000;*/
   text-align: center;
 }
 
