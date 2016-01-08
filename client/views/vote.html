@@ -1,30 +1,33 @@
 <div class='detailBox-comment' ng-controller="VoteCtrl">
-  <div class='vote-container'>
-    <div class='vote-text-container'>
-      <div ng-if="imageId !== -1">
-        <div class="vote-greeting">Bonjour Fashionista {{username}}!!</div>
-        <div class="vote-prompt-voting-text">What do you think of this look?</div>
+  <div class='vote-container col-md-12'>
+    <div class='vote-text-container col-md-12'>
+      <div class='vote-header row'>
+        <div class="vote-greeting col-md-offset-3 col-md-6 col-md-offset-3">Bonjour, Fashionista {{username}}!!</div>
       </div>
-      <div ng-if="imageId === -1" class="vote-no-images-text">You go, {{username}}!<br>No more clothes to vote on.<br>Please check back later.</div>
-      <form ng-if="imageId !== -1">
-      <star-rating ng-model="rating.value" max="5" readonly="false" on-rating-select="rating.rateFunction(rating)"></star-rating>
-      <div class="clean"></div>
-        <div ng-if="updated">Vote Accepted</div>
-      </form>
-      <div class="">
-        <div class="actionBox">
-          <form class="form-inline" role="form">
-            <div class="form-group">
-              <textarea ng-model="comment.message" class="text-area-control" type="text" placeholder="Have an opinion? Leave a comment!"> </textarea>
-              <button ng-click="vote()" ng-click="submitComment()" type='button' class='btn btn-primary comment-button fa fa-pencil-square-o'><span class='comment-btn-text'>Vote</span></button>
+      <div class='row'>
+        <div class='col-md-6'>
+          <img class='vote-image' ng-src="{{imageUrl}}">
+        </div>
+        <div class='col-md-6'>
+          <div class='clear'></div>
+          <div ng-if="imageId !== -1">
+            <div class="vote-prompt-voting-text">What do you think of this look?</div>
+            <star-rating ng-model="rating.value" max="5" readonly="false" on-rating-select="rating.rateFunction(rating)"></star-rating>
+            <div class="">
+              <div class="actionBox">
+                <form class="form-inline" role="form">
+                  <div class="form-group">
+                    <textarea ng-model="comment.message" class="text-area-control" type="text" placeholder="Let them hear your opinion..."> </textarea>
+                    <button ng-click="vote()" ng-click="submitComment()" type='button' class='btn btn-primary comment-button fa fa-pencil-square-o'><span class='comment-btn-text'>Vote</span></button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </form>
+          </div>
+          <div ng-if="imageId === -1" class="vote-no-images-text">You go, {{username}}!<br>No more clothes to vote on.<br>Please check back later.</div>
         </div>
       </div>
-    </div>
-
+    </div> <!-- vote-text-container -->
   </div>
-    <img class='vote-image' ng-src="{{imageUrl}}">
-
-
 </div>
+
