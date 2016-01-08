@@ -4,6 +4,7 @@ body {
   font-family: 'Catamaran', serif;
   background-size: cover; 
   transition: background 1s linear;
+  font-weight: 100;
 }
 
 a {
@@ -19,7 +20,10 @@ a {
   display: inline;
 	font-family: 'Catamaran', serif;
 }
-
+.user-comment {
+  font-weight: 700;
+  font-size: 1em;
+}
 .nav-pad {
   padding-right: 140px;
 }
@@ -42,6 +46,7 @@ input {
 .nav-brand-logo {
   height: 50px;
   width: 124px;
+  margin-top: -10px;
 }
 .message-error {
   height: 35px;
@@ -332,6 +337,7 @@ a:hover, a:link {
   margin: 2px !important;
 }
 
+
 .closetbuttons {
   display: inline;
 }
@@ -389,17 +395,20 @@ input::-webkit-input-placeholder{
 .vote-container{
   text-align: center;
   margin: 0 auto;
-  width: 50%;
+  padding: 0px !important;
 }
 
 .vote-text-container{
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(128, 128, 128, 0.8);
+  padding: 0px 5px 15px 5px;
+  border-radius: 10px;
 }
 
 .vote-prompt-voting-text{
   color: black;
   font-family: 'Catamaran', sans-serif;
+  font-size: 28px
 }
 
 .vote-no-images-text{
@@ -407,6 +416,12 @@ input::-webkit-input-placeholder{
   font-family: 'Catamaran', sans-serif;
   color: purple;
   font-size: 2em;
+}
+
+.vote-header{
+  background-color: teal;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .vote-greeting{
@@ -426,15 +441,22 @@ input::-webkit-input-placeholder{
   -webkit-box-shadow: 10px 10px 41px 10px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 41px 10px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 41px 10px rgba(0,0,0,0.75);
-  max-width: 500px;
+  max-width: 100%;
   border: 6px solid black;
 }
-
 
 .star-rating {
   margin: 0;
   padding: 0;
   display: inline-block;
+}
+
+.star-rating-vote-page {
+  margin-bottom: 8px;
+  padding: 3px;
+  display: inline-block;
+  background-color: #337ab7; /*Same blue as vote button*/
+  border-radius: 30px;
 }
 
 .star {
@@ -487,9 +509,16 @@ input::-webkit-input-placeholder{
   border-radius: 10px;
   margin: 10px auto;
   background: #fdfdfd;
-  opacity: 0.9;
+  padding-bottom: 43px;
 }
 
+.back-btn {
+  color: #fff;
+}
+.back-btn:hover{
+  color: #333;
+  border-bottom: none;
+}
 .titleBox {
   background-color:#fdfdfd;
   padding:10px;
@@ -502,8 +531,8 @@ input::-webkit-input-placeholder{
 }
 
 .commentBox {
-  padding:10px;
-  border-top:1px dotted #bbb;
+  padding: 10px;
+  border-top: 1px dotted #bbb;
 }
 .commentBox .form-group:first-child, .actionBox .form-group:first-child {
     width:80%;
@@ -562,6 +591,8 @@ input::-webkit-input-placeholder{
 .text-area-control {
   height: 60px;
   width: 200px;
+  border-radius: 10px;
+  padding: 8px;
   resize: none;
 }
 .btn-container {

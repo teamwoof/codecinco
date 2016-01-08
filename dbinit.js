@@ -49,6 +49,31 @@ function postImage(img_url, username, file_name, clothing_type){
     });
   });
 }
+
+function postVote(rating, comment, username, photo_id){
+ pg.connect(connectString, function (err, client, done){
+    if(err){
+      console.error('error connecting to the DB:', err);
+    }
+    client.query('SELECT user_id FROM users WHERE username = $1', [username], function(err, result){
+      if(err){
+        console.error('error on lookup of user id:', err)
+      }
+      else {
+        var user_id = result.rows[0].user_id;
+        client.query('INSERT INTO votes (rating, message, user_id, image_id) VALUES ($1, $2, $3, $4)', [rating, comment, user_id, photo_id], function (err, result){
+          if(err){
+            console.error(err);
+          } else {
+            done();
+          }
+        })
+      }
+    });
+  });
+}
+
+
 postUser('kanye', 'kanye'); 
 postUser('oliver', 'oliver');
 postUser('jlaw', 'jlaw');
@@ -70,7 +95,6 @@ postImage('http://onedapperstreet.com/wordpress/wp-content/uploads/2015/12/Club-
 postImage('http://onedapperstreet.com/wordpress/wp-content/uploads/2015/12/Lined_151214-800x1199.jpg', 'oliver', 'oliver7.jpg', 4);
 postImage('http://onedapperstreet.com/wordpress/wp-content/uploads/2015/04/PONY_edit_3-800x534.jpg', 'oliver', 'oliver6.jpg', 3);
 postImage('http://onedapperstreet.com/wordpress/wp-content/uploads/2014/10/Unknown-800x835.jpeg', 'oliver', 'oliver5.jpg', 1);
-postImage('http://4.bp.blogspot.com/-RJRs6m9X2NA/UlowFnzcxII/AAAAAAAAFSA/U61ygoz0Dk8/s1600/Stone+Island_131002_8962Edit.jpg', 'oliver', 'oliver4.jpg', 1);
 postImage('http://i.stpost.com/carhartt-washed-twill-work-pants-for-men-in-dark-khaki~p~3657w_03~1500.3.jpg', 'oliver', 'oliver3.jpg', 2);
 postImage('http://g02.a.alicdn.com/kf/HTB1EqLyHVXXXXc9XXXXq6xXFXXXi/2013-Four-Seasons-font-b-Military-b-font-font-b-Cargo-b-font-font-b-Pants.jpg', 'oliver', 'oliver2.jpg', 2);
 postImage('https://shoesaurboots.files.wordpress.com/2012/05/1289388730-30308600.jpg', 'oliver', 'oliver1.jpg', 3);
@@ -101,3 +125,74 @@ postImage('http://40.media.tumblr.com/caa954a2eef1927165b68dd3d7d4f63f/tumblr_nv
 postImage('http://41.media.tumblr.com/b2dee668cfe812b6420206e464c4c586/tumblr_nqvsb1SzDa1s4yg05o1_500.jpg', 'doge', 'doge8.jpg', 4);
 }, 5000);
 //insert vote 
+
+setTimeout(function(){
+postVote(4, 'woof', 'doge', 1);
+postVote(3, 'woof', 'doge', 2);
+postVote(4, 'woof', 'doge', 3);
+postVote(4, 'woof', 'doge', 4);
+postVote(4, 'woof', 'doge', 5);
+postVote(4, 'woof', 'doge', 6);
+postVote(2, 'woof', 'doge', 7);
+postVote(4, 'woof', 'doge', 8);
+postVote(4, 'woof', 'doge', 9);
+postVote(4, 'woof', 'doge', 10);
+postVote(3, 'woof', 'doge', 11);
+postVote(4, 'woof', 'doge', 12);
+postVote(4, 'woof', 'doge', 13);
+postVote(5, 'woof', 'doge', 14);
+postVote(4, 'woof', 'doge', 15);
+postVote(4, 'woof', 'doge', 16);
+postVote(1, 'woof', 'doge', 17);
+postVote(4, 'woof', 'doge', 18);
+postVote(4, 'woof', 'doge', 19);
+postVote(2, 'woof', 'doge', 20);
+postVote(3, 'woof', 'doge', 21);
+postVote(4, 'woof', 'doge', 22);
+postVote(4, 'woof', 'doge', 23);
+postVote(4, 'woof', 'doge', 24);
+
+postVote(1, 'You are so heartless', 'kanye', 6);
+postVote(1, 'I am yeezus', 'kanye', 7);
+postVote(1, 'I am yeezus', 'kanye', 8);
+postVote(1, 'I am yeezus', 'kanye', 9);
+postVote(1, 'I am yeezus', 'kanye', 10);
+postVote(1, 'I am yeezus', 'kanye', 11);
+postVote(1, 'I am yeezus', 'kanye', 12);
+postVote(1, 'I am yeezus', 'kanye', 13);
+postVote(5, 'Keep it 300, like the romans', 'kanye', 14);
+postVote(1, 'I am yeezus', 'kanye', 15);
+postVote(1, 'I am yeezus', 'kanye', 16);
+postVote(1, 'Success is the best revenge', 'kanye', 17);
+postVote(5, 'Believe in your flyness, conquer your shyness', 'kanye', 18);
+postVote(3, 'I am my favorite rapper', 'kanye', 19);
+postVote(1, 'I am a gay fish', 'kanye', 20);
+postVote(3, 'Fashion isnt always practical', 'kanye', 21);
+postVote(1, 'I dont care what people think because they dont', 'kanye', 22);
+postVote(1, 'Second place is the first one who lost', 'kanye', 23);
+postVote(1, 'I have a lot of time on my hands because I am rich', 'kanye', 24);
+postVote(1, 'Everything I am not, made me everything I am', 'kanye', 25);
+postVote(1, 'I am a creative genius and there is no other way to word it', 'kanye', 26);
+postVote(1, 'I am the number one rock star on the planet', 'kanye', 27);
+postVote(1, 'I did some things but thats the old me', 'kanye', 28);
+postVote(5, 'Fly to death', 'kanye', 29);
+postVote(1, 'They aint about that life', 'kanye', 30);
+postVote(4, 'Love your haters they are your biggest fans', 'kanye', 31);
+postVote(1, 'I am yeezus', 'kanye', 32);
+
+postVote(3, 'PEETA', 'jlaw', 1);
+postVote(3, 'PEETA', 'jlaw', 2);
+postVote(3, 'PEETA', 'jlaw', 3);
+postVote(3, 'PEETA', 'jlaw', 4);
+postVote(3, 'PEETA', 'jlaw', 5);
+postVote(3, 'PEETA', 'jlaw', 6);
+postVote(3, 'PEETA', 'jlaw', 7);
+postVote(3, 'PEETA', 'jlaw', 8);
+postVote(3, 'PEETA', 'jlaw', 11);
+postVote(3, 'PEETA', 'jlaw', 12);
+postVote(3, 'PEETA', 'jlaw', 13);
+postVote(3, 'PEETA', 'jlaw', 14);
+postVote(3, 'PEETA', 'jlaw', 15);
+postVote(3, 'PEETA', 'jlaw', 16);
+}, 7000);
+

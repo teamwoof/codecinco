@@ -18,6 +18,9 @@
         readonly: '=?'
       },
       link: function(scope, element, attributes) {
+        if(! scope.readonly){
+          element.addClass('star-rating-vote-page');
+        }
         if (scope.max == undefined) {
           scope.max = 5;
         }

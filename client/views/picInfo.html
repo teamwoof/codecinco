@@ -3,7 +3,7 @@
 </div>
 <div class="ratingDiv">
   <span class="rating-text">
-    {{ info.rating.toPrecision(2) || "No votes yet!"  }}
+    {{ info.rating || "No votes yet!"  }}
   </span>
   <star-rating ng-if="info.stars" ng-model="info.rating" readonly="true"></star-rating>
 </div>
