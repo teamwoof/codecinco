@@ -360,40 +360,21 @@ routes.post('/s3test', function (req, res){
 /*************************AMAZON STORAGE FOR IMAGES******************************************/
 
 
-if(process.env.NODE_ENV !== 'test') {
-  //
-  // The Catch-all Route
-  // This is for supporting browser history pushstate.
-  // NOTE: Make sure this route is always LAST.
-  //
-  routes.get('/*', function(req, res){
-    res.sendFile( assetFolder + '/client/index.html' )
-  })
 
-  //
-  // We're in development or production mode;
-  // create and run a real server.
-  //
-  var app = express();
+routes.get('/*', function(req, res){
+  res.sendFile( assetFolder + '/client/index.html' )
+})
 
-  // Parse incoming request bodies as JSON
-  app.use( bodyParser.json() );
+var app = express();
 
-  // Mount our main router
-  app.use('/', routes);
+// Parse incoming request bodies as JSON
+app.use( bodyParser.json() );
 
-  // Start the server!
-  var port = process.env.PORT || 4040;
-  app.listen(port);
-  console.log("Listening on port", port);
-} else {
-  // We're in test mode; make this file importable instead.
-  module.exports = routes;
-}
+// Mount our main router
+app.use('/', routes);
 
-// pg connection
-// pg.connect(process.env.DATABASE_URL || 'postgres://localhost:5432/closet', function(err, client){
-//   if (err) throw err;
-//   console.log('Connected to closet!');
+// Start the server!
+var port = process.env.PORT || 4040;
+app.listen(port);
+console.log("Listening on port", port);
 
-// });
